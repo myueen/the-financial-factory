@@ -1,8 +1,7 @@
 package a3;
 public interface BankAccount {
-    Boolean deposit(double amount);
-    Boolean withdraw(double amount);
+    boolean deposit(double amount);
+    boolean withdraw(double amount);
     double getInterestRate();
     double getAccountBalance();
-
 }

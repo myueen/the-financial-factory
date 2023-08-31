@@ -29,7 +29,7 @@ public class PersonalAccount implements BankAccount{
 
     public void getService() {
         greeting();
-        Boolean exit = false;
+        boolean exit = false;
         while(!exit) {
             System.out.println("                                                                          ");
             System.out.println("                                                                          ");
@@ -52,7 +52,7 @@ public class PersonalAccount implements BankAccount{
 
      // Interface Method
     @Override
-     public Boolean deposit(double amount){
+     public boolean deposit(double amount){
         System.out.println("The amount to deposit is: " + amount);
         accountBalance += amount;
         System.out.println("Your account balance is: " + accountBalance);
@@ -61,7 +61,7 @@ public class PersonalAccount implements BankAccount{
 
 
      @Override
-     public Boolean withdraw(double amount){
+     public boolean withdraw(double amount){
         if(accountBalance < minimumDailyBalance) {
             System.out.println("The account balance is below minimum daily balance.");
             return true;
@@ -125,13 +125,14 @@ public class PersonalAccount implements BankAccount{
                          "\n (c) Check Credit Score" +
                          "\n (d) Check Credit Status" +
                          "\n (e) Check Interest Rate" +
-                         "\n (f) Account Balance");
+                         "\n (f) Account Balance" +
+                         "\n (g) Get a loan");
                  setService(sc1.nextLine());
          }
      }
 
 
-     private Boolean moreService(){
+     private boolean moreService(){
          System.out.println("Would you like to proceed to another option? Please enter Y or N. ");
          Scanner sc1 = new Scanner(System.in);
          String additionalService = sc1.next();
@@ -142,11 +143,8 @@ public class PersonalAccount implements BankAccount{
              additionalService = sc1.next();
          }
 
-         if(additionalService.equals("Y")) {
-             return false;
-         } else {
-             return true;
-         }
+         if(additionalService.equals("Y")) { return false;}
+         return true;
      }
 
 
@@ -171,18 +169,16 @@ public class PersonalAccount implements BankAccount{
      }
 
 
-     public Boolean getLoan(double loan){
+     private boolean getLoan(double loan){
         loanAmount = loan;
         switch(getCreditStatus()){
-            case "Excellent":
-            case "Very good":
+            case "Excellent", "Very good":
                 annualPercentRate = 0.05;
                 break;
             case "Good":
                 annualPercentRate = 0.10;
                 break;
-            case "Fair":
-            case "Poor":
+            case "Fair", "Poor":
                 annualPercentRate = 0.15;
                 break;
             default:
