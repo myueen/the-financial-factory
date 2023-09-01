@@ -10,7 +10,7 @@ This project creates a program using Java that mimics the functioning of a bank.
 
 
 ## Account Management
-Description: This programs stimulate the process of opening a new bank account online. A survey-format question is provided to gather information for the new account. After the user confirmed the information they enter, user can put in their initial deposit. 
+**Description**: This programs stimulate the process of opening a new bank account online. A survey-format question is provided to gather information for the new account. After the user confirmed the information they enter, user can put in their initial deposit. 
 1. __getService()__: The open page that prompts the user to type in the service they want. 
 2. __setService(String service)__: Allows the program to categorize the user's input and run the subsequent program.
 3. __openAccount(String accountType)__: A method that prompts a series of questions that gathers information for the new bank account. 
@@ -24,7 +24,7 @@ Description: This programs stimulate the process of opening a new bank account o
 
 
 ## Personal Account
-Description: 
+**Description**: This program offers the bank account user services that a bank can provide, including deposit and withdraw money. Additionally, it also fulfills the role of a bank advisory such that the account owner can learn about the interest rate, the credit score, the credit status, and also the monthly payment for a loan. For example, in the service of getting a loan, the program serve as a calculator that returns the monthly payment based on the desired loan amount, the account owner's credit score and credit status, and its corresponding annual percent rate. This subprogram provide personalized response that helps account owner to make better decisions. 
 1. __getService()__: The open page that prompts the user to type in the service they want.
 2. __deposit(double amount)__: A method for depositing money. Interface method.
 3. __withdraw(double amount)__: A method for withdrawing money. Money withdrawals fails when the account balance is below the minimum daily balance. Interface method.
@@ -40,7 +40,7 @@ Description:
 
 
 ## Business Account
-Description: 
+**Description**: 
 1. __getService()__: The open page that prompts the user to type in the service they want.
 2. __deposit(double amount)__: A method for depositing money. Interface method.
 3. __withdraw(double amount)__: A method for withdrawing money. Interface method.
