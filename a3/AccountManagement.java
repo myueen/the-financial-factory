@@ -9,7 +9,8 @@ public class AccountManagement {
     private String dateOfBirth;
     private String physicalAddress;
     private String emailAddress;
-    private int AccountNumber;
+    private int accountNumber;
+    private int socialSecurityNumber;
     private double accountBalance;
 
     public AccountManagement(String business) {
@@ -68,6 +69,9 @@ public class AccountManagement {
         System.out.println("Date of Birth (MM/DD/YY): ");
         dateOfBirth = sc1.nextLine();
 
+        System.out.println("Social Security Number: ");
+        socialSecurityNumber = Integer.parseInt(sc1.nextLine());
+
         System.out.println("Physical Address: ");
         physicalAddress = sc1.nextLine();
 
@@ -77,10 +81,7 @@ public class AccountManagement {
         confirmInfo();
         System.out.println("                                                                          ");
         makeChanges();
-        System.out.println("What is your initial deposit? Please enter the amount: ");
-        accountBalance = Double.parseDouble(sc1.nextLine());
-        System.out.println("                                                                          ");
-
+        initialDeposit();
         endMessage(accountType);
     }
 
@@ -101,8 +102,9 @@ public class AccountManagement {
                 System.out.println("(a) First Name");
                 System.out.println("(b) Last Name ");
                 System.out.println("(c) Date of Birth");
-                System.out.println("(d) Physical Address");
-                System.out.println("(e) Email Address");
+                System.out.println("(d) Social Security Number");
+                System.out.println("(e) Physical Address");
+                System.out.println("(f) Email Address");
                 String changeVariable = sc1.nextLine();
                 updateInfo(changeVariable);
                 confirmInfo();
@@ -124,8 +126,8 @@ public class AccountManagement {
                     "Meanwhile, if you have any question, please contact our Account Manager Miss.Ma \n" +
                     "by dialing 781-308-2462 or by email liana.yema@gmail.com. Thank you!" );
         } else {
-            AccountNumber = accountNumberGenerator();
-            System.out.println("Your saving account number number is " + AccountNumber + ". \n" +
+            accountNumber = accountNumberGenerator();
+            System.out.println("Your saving account number number is " + accountNumber + ". \n" +
                     "The physical card will be mailed within the next 3-7 business day. \n" +
                     "Meanwhile, if you have any questions, please contact our Account Manager Miss.Ma \n" +
                     "by dialing 781-308-2462 or by emailing liana.yema@gmail.com. Thank you!" );
@@ -148,6 +150,7 @@ public class AccountManagement {
         System.out.println("Please confirm the following information: ");
         System.out.println("Applicant names:  " + firstName + " " + lastName);
         System.out.println("Date of Birth:    " + dateOfBirth);
+        System.out.println("Social Security Number: " + socialSecurityNumber);
         System.out.println("Physical Address: " + physicalAddress);
         System.out.println("Email Address:    " + emailAddress);
     }
@@ -169,10 +172,13 @@ public class AccountManagement {
                 dateOfBirth = sc1.nextLine();
                 break;
             case "d":
+                System.out.println("Social Security Number change to: ");
+                socialSecurityNumber = Integer.parseInt(sc1.nextLine());
+            case "e":
                 System.out.println("Physical address change to: ");
                 physicalAddress = sc1.nextLine();
                 break;
-            case "e":
+            case "f":
                 System.out.println("Email address change to: ");
                 emailAddress = sc1.nextLine();
                 break;
@@ -185,11 +191,21 @@ public class AccountManagement {
                     System.out.println("(a) First Name");
                     System.out.println("(b) Last Name");
                     System.out.println("(c) Date of Birth");
-                    System.out.println("(d) Physical Address");
-                    System.out.println("(e) Email Address");
+                    System.out.println("(d) Social Security Number");
+                    System.out.println("(e) Physical Address");
+                    System.out.println("(f) Email Address");
                     variable = sc1.nextLine();
                     updateInfo(variable);
                 }
         }
+    }
+
+
+    private void initialDeposit(){
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("What is your initial deposit? Please enter the amount: ");
+        accountBalance = Double.parseDouble(sc1.nextLine());
+        System.out.println("                                                                          ");
+
     }
 }

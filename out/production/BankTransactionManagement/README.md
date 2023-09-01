@@ -1,13 +1,28 @@
 # BankManagement_Project
 
 ### Plan of Design:
+This project creates a program using Java that mimics the functioning of a bank. Rather than simpling depositing and withdrawing money as an ATM, this program have the following additional benefits. First, the bank account opening is simulated by a subprogram named "Account Management". Two additional subprogram "Personal Account" and "Business Account" meets different needs for different bank account. In addition to depositing and withdrawing money, the personal account program offers users more options such as checking credit status and getting a loan. The business account offers an ever more diverse choices at managing the checking amount of a business. It allows account owner to allocate money for different purposes such as operating expenses, taxes, payrolls, and emergency funds. The business account program allows business owners to effectively subdivide the monthly revenue into different categories for management and payments.       
+
 (1) OpenAccount
 (2) Business bank account: (pay suppliers and employees, make purchases for your business, make business tax payments)
 (3) Personal bank account: (deposit paycheck, pay household bills, make personal purchase. )
 (4) BankAccount interface
 
 
-## OpenAccount
+## Account Management: 
+Methods:
+1. __getService()__: The open page that prompts the user to type in the service they want. 
+2. __setService(String service)__: Allows the program to categorize the user's input and run the subsequent program.
+3. __openAccount(String accountType)__: A method that prompts a series of questions that gathers information for the new bank account. 
+4. __makeChanges()__: A helper method that uses to determine if the information entered need additional changes; 
+5. __endMessage(String accountType)__: A method that conclude the account opening application. 
+6. __accountNumberGenerator()__: Generate a random number for the bank account number; 
+7. __confirmInfo()__: A helper method that prints out the user input on the screen for confirmation; 
+8. __updateInfo(String variable)__: A helper method that sets the updated information.
+9. __initialDeposit()__: A help method that allows the user to set their initial deposit in their new bank account.  
+
+
+
 (1) Applicant Last Name:
 (2) Applicant First Name:
 (3) Date of Birth (Year, month, date):
