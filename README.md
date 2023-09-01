@@ -61,3 +61,7 @@ This project creates a program using Java that mimics the functioning of a bank.
 21. __setTaxes(float percentage)__: A helper method for Taxes().
 22. __payTaxes(float amount)__: A helper method for Taxes().
 23. __greeting()__: Print out the opening sentence that include the bank owner's first name, last name, and the account number. 
+
+
+### Reference ###
+1. The ARP for different credit status: https://www.wellsfargo.com/goals-credit/smarter-credit/credit-101/getting-a-loan/
