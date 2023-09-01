@@ -9,7 +9,8 @@ This project creates a program using Java that mimics the functioning of a bank.
 (4) BankAccount interface
 
 
-## Account Management:
+## Account Management
+Description: This programs stimulate the process of opening a new bank account online. A survey-format question is provided to gather information for the new account. After the user confirmed the information they enter, user can put in their initial deposit. 
 1. __getService()__: The open page that prompts the user to type in the service they want. 
 2. __setService(String service)__: Allows the program to categorize the user's input and run the subsequent program.
 3. __openAccount(String accountType)__: A method that prompts a series of questions that gathers information for the new bank account. 
@@ -23,8 +24,9 @@ This project creates a program using Java that mimics the functioning of a bank.
 
 
 ## Personal Account
+Description: 
 1. __getService()__: The open page that prompts the user to type in the service they want.
-2. __deposit(double amount)__: A method for deposit money. Interface method.
+2. __deposit(double amount)__: A method for depositing money. Interface method.
 3. __withdraw(double amount)__: A method for withdrawing money. Money withdrawals fails when the account balance is below the minimum daily balance. Interface method.
 4. __getInterestRate()__: Interface method.
 5. __getAccountBalance()__: Interface method.
@@ -38,16 +40,24 @@ This project creates a program using Java that mimics the functioning of a bank.
 
 
 ## Business Account
-
-
-
-
-(1) Multiple checking account: 
-    - (primary checking account: direct deposit and withdrawals;)
-    - (operating expenses: cover monthly expenses - rent, software subscriptions, utility payments and travel expenses)
-    - (emergency fund: save money in an account with a dedicated emergency fund for unexpected situations or expenses.
-        = set aside a small percentage of your monthly revenue)
-    - (payroll: one account for payroll and regularly fund it with necessary amount to cover a month worth of payroll)
-    - (savings goals: short-term/long-term for down payment on a new piece of equipment or a new car.
-        =allocate 5% of your revenue to set up automatic transfers)
-    - (taxes: if your business brings in $10,000 a month, and you pay 15% in taxes, you'll want to store away %1500 a month in your tax account )
+Description: 
+1. __getService()__: The open page that prompts the user to type in the service they want.
+2. __deposit(double amount)__: A method for depositing money. Interface method.
+3. __withdraw(double amount)__: A method for withdrawing money. Interface method.
+4. __getInterestRate()__: Interface method.
+5. __getAccountBalance()__: Interface method.
+6. __setService(String service)__: Allows the program to categorize the user's input and run the subsequent program.
+7. __moreService()__: A method that allows to check if the account owner want additional services provided in the option section.
+8. __operatingExpense()__: Offer business owner to set up the percentage of the monthly revenue for operating expense such as rent and facilities. Another option to pay for the operating expense after the total amount of money is determined. 
+9. __setOperatingExpense(float percent)__: A helper method for operatingExpense().
+10. __payOperatingExpense()__: A helper method for operatingExpense().
+11. __emergencyFunds()__: Save a percentage of the monthly revenue for emergency funds. The business owner can set the percentage, and is provided with the option to take out the emergency funds into the account balance. 
+12. __setEmergencyFunds(float percent)__: A helper method for emergencyFunds().
+13. __releaseEmergencyFunds()__: A helper method for emergencyFunds().
+14. __payRolls()__: Determine the number of employees in the business and the employee income. The business owner can use this method to calculate the total amount of money for monthly employee payments, and is provided with the method to calculate the account balance after paying the employees.  
+15. __setPayroll(int num, float amount)__: A helper method for payRolls().
+16. __payEmployees()__: A helper method for payRolls().
+17. __setSavingsGoal()__: Save a percentage of the monthly revenue for short-term and/or long-term goal such as buying new equipments and expanding business. 
+18. __Taxes()__: Allows business owner to calculate the taxes based on the tax percentage and its monthly revenue. Also shows the account balance left after taxes.  
+19. __setTaxes(float percentage)__: A helper method for Taxes().
+20. __payTaxes()__: A helper method for Taxes().

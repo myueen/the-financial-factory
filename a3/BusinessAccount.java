@@ -23,6 +23,7 @@ public class BusinessAccount implements BankAccount{
         monthlyRevenue = revenue;
     }
 
+
     public void getService() {
         System.out.println("==========================================================================");
         System.out.println("                                                                          ");
@@ -70,6 +71,7 @@ public class BusinessAccount implements BankAccount{
 
      @Override
      public double getAccountBalance(){ return accountBalance;}
+
 
     public void setService(String service){
         Scanner sc1 = new Scanner(System.in);
@@ -282,9 +284,4 @@ public class BusinessAccount implements BankAccount{
         accountBalance -= taxes;
         System.out.println("Your account balance is " + accountBalance);
     }
-
-
-
-
-
 }
