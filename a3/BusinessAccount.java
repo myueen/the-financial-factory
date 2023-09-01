@@ -3,6 +3,7 @@ package a3;
 import java.util.Scanner;
 
 import static java.lang.Math.round;
+import static java.lang.Math.sqrt;
 
 public class BusinessAccount implements BankAccount{
     public double interestRate = 0.0265;
@@ -11,9 +12,10 @@ public class BusinessAccount implements BankAccount{
     private double monthlyRevenue;
     private float operatingExpense;
     private float emergencyFunds;
+    private float payRoll;
     private int employees = 0;
     private float employeeIncome = 0;
-    private int savings = 0;
+    private int savingsGoal = 0;
     private float taxes;
 
 
@@ -148,20 +150,32 @@ public class BusinessAccount implements BankAccount{
             float percentage = Float.parseFloat(sc1.nextLine());
             setOperatingExpense(percentage);
         } else {
-            payOperatingExpense();
+            System.out.println("What is the amount needed to pay for operating expense? Please enter the amount here: ");
+            float amount = Float.parseFloat(sc1.nextLine());
+            payOperatingExpense(amount);
         }
     }
 
 
     private void setOperatingExpense(float percent){
         operatingExpense = round(monthlyRevenue * percent);
+        accountBalance -= operatingExpense;
+        System.out.println("Your current operating expense checking account is " + operatingExpense);
+        System.out.println("Your account balance is " + accountBalance);
     }
 
 
-    private void payOperatingExpense(){
-        System.out.println("Your monthly operating expense is " + operatingExpense);
-        accountBalance -= operatingExpense;
-        System.out.println("Your account balance is " + accountBalance);
+    private void payOperatingExpense(float amount){
+        System.out.println("Operating expense:" + operatingExpense);
+        System.out.println("Amount to withdraw: " + amount);
+        if(amount >= operatingExpense){
+            System.out.println("There is not enough money in the operating expense checking account. Please enter a greater percentage of monthly revenue: ");
+            Scanner sc1 = new Scanner(System.in);
+            setOperatingExpense(Float.parseFloat(sc1.nextLine()));
+        }
+
+        operatingExpense -= amount;
+        System.out.println("Your current operating expense checking accounts balance is " + operatingExpense);
     }
 
 
@@ -174,7 +188,7 @@ public class BusinessAccount implements BankAccount{
             System.out.println("Please choose only the options provided.");
             System.out.println("Please choose the following option (a/b): \n " +
                     "(a) Set up emergency funds. " +
-                    "(b) Take out for emergency funds. ");
+                    "(b) Release emergency funds. ");
         }
 
         if(option.equals("a")){
@@ -189,12 +203,16 @@ public class BusinessAccount implements BankAccount{
 
     private void setEmergencyFunds(float percent){
         emergencyFunds = round(monthlyRevenue * percent);
+        accountBalance -= emergencyFunds;
+        System.out.println("Your current emergency funds checking account balance is " + emergencyFunds);
+        System.out.println("Your account balance is " + accountBalance);
     }
 
 
     private void releaseEmergencyFunds(){
-        System.out.println("Your current amount of emergency fund is " + emergencyFunds);
         accountBalance += emergencyFunds;
+        emergencyFunds -= emergencyFunds;
+        System.out.println("Your current amount of emergency fund is " + emergencyFunds);
         System.out.println("Your account balance is " + accountBalance);
     }
 
@@ -212,31 +230,42 @@ public class BusinessAccount implements BankAccount{
         }
 
         if(option.equals("a")){
+            System.out.println("What percentage of revenue for emergency funds monthly? Please enter the percentage here: ");
+            float percent = Float.parseFloat(sc1.nextLine());
+            setPayroll(percent);
+        } else {
             System.out.println("How many employees in your business? Please enter here: ");
             int numOfEmployees = Integer.parseInt(sc1.nextLine());
             System.out.println("What amount to pay for each employee? Please enter here: ");
             float payAmount = Float.parseFloat(sc1.nextLine());
-            setPayroll(numOfEmployees, payAmount);
-        } else {
-            payEmployees();
+            payEmployees(numOfEmployees, payAmount);
         }
 
     }
 
 
-    private float setPayroll(int num, float amount){
-        employees = num;
-        employeeIncome = amount;
-        float total = num * amount;
-        System.out.println("The total amount of payment for " + num + " employees is "+ total);
-        return total;
+    private void setPayroll(float percent){
+        payRoll = round(monthlyRevenue * percent);
+        accountBalance -= payRoll;
+        System.out.println("Your current amount of payroll checking account balance is " + payRoll);
+        System.out.println("Your account balance is " + accountBalance);
     }
 
 
-    private void payEmployees(){
-        float total = setPayroll(employees, employeeIncome);
-        accountBalance -= total;
-        System.out.println("Your account balance is " + accountBalance);
+    private void payEmployees(int num, float amount){
+        employees = num;
+        employeeIncome = amount;
+        float total = employees * employeeIncome;
+
+        if(total >= payRoll){
+            System.out.println("There is not enough money in the payroll checking account. Please enter a greater percentage of monthly revenue: ");
+            Scanner sc1 = new Scanner(System.in);
+            setPayroll(Float.parseFloat(sc1.nextLine()));
+        }
+
+        System.out.println("Payroll checking account balance: " + payRoll);
+        payRoll -= total;
+        System.out.println("Your current payroll checking account balance is " + payRoll);
     }
 
 
@@ -245,10 +274,12 @@ public class BusinessAccount implements BankAccount{
         System.out.println("This is for short-term and long-term saving goals such as purchasing new facilities or expanding business.\n" +
                 "Please enter the percentage of monthly revenue to be allocated in savings.");
         float percentage = Float.parseFloat(sc1.nextLine());
-        int amount = (int) round(monthlyRevenue * percentage);
-        savings += amount;
-        System.out.println("The amount to put into savings is "+ amount + ". \n" +
-                "Your current savings is "+ savings);
+        float amount = round(monthlyRevenue * percentage);
+        savingsGoal += amount;
+
+        System.out.println("The amount to put into savings is "+ amount);
+        System.out.println("Your savingsGoal checking account balance is " + savingsGoal);
+        System.out.println("Your account balance is " + accountBalance);
     }
 
 
@@ -269,19 +300,30 @@ public class BusinessAccount implements BankAccount{
             float percentage = Float.parseFloat(sc1.nextLine());
             setTaxes(percentage);
         } else {
-            payTaxes();
+            System.out.println("What is the amount needed to pay for taxes? Please enter the amount here: ");
+            float amount = Float.parseFloat(sc1.nextLine());
+            payTaxes(amount);
         }
     }
 
 
     private void setTaxes(float percentage){
-        taxes = (float) (monthlyRevenue * percentage);
+        taxes = round(monthlyRevenue * percentage);
+        accountBalance -= taxes;
+        System.out.println("Your current amount of taxes checking account balance is " + taxes);
+        System.out.println("Your account balance is " + accountBalance);
     }
 
 
-    private void payTaxes(){
-        System.out.println("The amount of taxes is " + taxes);
-        accountBalance -= taxes;
-        System.out.println("Your account balance is " + accountBalance);
+    private void payTaxes(float amount){
+        System.out.println("The amount of taxes is " + amount);
+        if(amount >= taxes){
+            System.out.println("There is not enough money in the taxes checking account. Please enter a greater percentage of monthly revenue: ");
+            Scanner sc1 = new Scanner(System.in);
+            setTaxes(Float.parseFloat(sc1.nextLine()));
+        }
+
+        taxes -= amount;
+        System.out.println("Your taxes checking account balance is " + taxes);
     }
 }
