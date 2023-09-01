@@ -17,12 +17,12 @@ public class Bank {
         kellyForbes.getService();
 
         //Business Account
-        BusinessAccount sunnyInvestment = new BusinessAccount("SunnyInvestment.Inc", 20183728, 98000, 150000);
+        BusinessAccount sunnyInvestment = new BusinessAccount("Sunny Investment", 20183728, 98000, 150000);
         sunnyInvestment.getService();
         sunnyInvestment.withdraw(100);
         sunnyInvestment.deposit(390);
 
-        BusinessAccount chinaPalaceRestaurant = new BusinessAccount("chinaPalaceRestaurant", 17287870, 12000, 37000);
+        BusinessAccount chinaPalaceRestaurant = new BusinessAccount("China Palace Restaurant", 17287870, 12000, 37000);
         chinaPalaceRestaurant.getService();
         chinaPalaceRestaurant.getInterestRate();
         chinaPalaceRestaurant.getAccountBalance();

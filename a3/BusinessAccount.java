@@ -47,7 +47,7 @@ public class BusinessAccount implements BankAccount{
             setService(sc1.nextLine());
             exit = moreService();
         }
-        System.out.println("Thank you for using our business account to manage expenses and savings!");
+        System.out.println("Thank you for using our business account to manage your expenses and savings!");
     }
 
 
@@ -306,7 +306,6 @@ public class BusinessAccount implements BankAccount{
             System.out.println("Please choose the following option (a/b): \n " +
                     "(a) Set up saving goals" + " (b) Take out money from saving goals account.");
             option = sc1.nextLine();
-
         }
 
         if(option.equals("a")){
@@ -340,10 +339,10 @@ public class BusinessAccount implements BankAccount{
 
     private void paySavingsGoal(float amount) {
         System.out.println("The amount of payment is " + amount);
-        while(amount >= taxes){
-            System.out.println("There is not enough money in the taxes checking account. Please enter a greater percentage of monthly revenue: ");
+        while(amount >= savingsGoal){
+            System.out.println("There is not enough money in the savingsGoal checking account. Please enter a greater percentage of monthly revenue: ");
             Scanner sc1 = new Scanner(System.in);
-            setTaxes(Float.parseFloat(sc1.nextLine()));
+            setSavingsGoal(Float.parseFloat(sc1.nextLine()));
         }
         savingsGoal -= amount;
         System.out.println("Your savingsGoal checking account balance is " + savingsGoal);
@@ -409,5 +408,4 @@ public class BusinessAccount implements BankAccount{
         System.out.println("Hello " + companyName + ", \n" +
                 "Welcome to your business account under account number " + accountNumber + ". ");
     }
-
 }

@@ -11,11 +11,12 @@ This project creates a program using Java that mimics the functioning of a bank.
 2. __setService(String service)__: Allows the program to categorize the user's input and run the subsequent program.
 3. __openAccount(String accountType)__: A method that prompts a series of questions that gathers information for the new bank account. 
 4. __makeChanges()__: A helper method that uses to determine if the information entered need additional changes; 
-5. __endMessage(String accountType)__: A method that conclude the account opening application. 
-6. __accountNumberGenerator()__: Generate a random number for the bank account number; 
-7. __confirmInfo()__: A helper method that prints out the user input on the screen for confirmation; 
-8. __updateInfo(String variable)__: A helper method that sets the updated information.
-9. __initialDeposit()__: A help method that allows the user to set their initial deposit in their new bank account.
+5. __confirmInfo()__: A helper method that prints out the user input on the screen for confirmation;
+6. __updateInfo(String variable)__: A helper method that sets the updated information.
+7. __initialDeposit()__: A help method that allows the user to set their initial deposit in their new bank account.
+8. __accountNumberGenerator()__: Generate a random number for the bank account number;
+9. __endMessage(String accountType)__: A method that conclude the account opening application.
+
 
 
 
@@ -53,7 +54,10 @@ This project creates a program using Java that mimics the functioning of a bank.
 14. __payRolls()__: Determine the number of employees in the business and the employee income. The business owner can use this method to calculate the total amount of money for monthly employee payments, and is provided with the method to calculate the account balance after paying the employees.  
 15. __setPayroll(float percent)__: A helper method for payRolls().
 16. __payEmployees(int num, float amount)__: A helper method for payRolls().
-17. __setSavingsGoal()__: Save a percentage of the monthly revenue for short-term and/or long-term goal such as buying new equipments and expanding business. 
-18. __Taxes()__: Allows business owner to calculate the taxes based on the tax percentage and its monthly revenue. Also shows the account balance left after taxes.  
-19. __setTaxes(float percentage)__: A helper method for Taxes().
-20. __payTaxes(float amount)__: A helper method for Taxes().
+17. __SavingsGoal()__: Save a percentage of the monthly revenue for short-term and/or long-term goal such as buying new equipments and expanding business. 
+18. __setSavingsGoal(float percent)__: A helper method for SavingsGoal().
+19. __paySavingsGoal(float amount)__: A helper method for SavingsGoal().
+20. __Taxes()__: Allows business owner to calculate the taxes based on the tax percentage and its monthly revenue. Also shows the account balance left after taxes.
+21. __setTaxes(float percentage)__: A helper method for Taxes().
+22. __payTaxes(float amount)__: A helper method for Taxes().
+23. __greeting()__: Print out the opening sentence that include the bank owner's first name, last name, and the account number. 

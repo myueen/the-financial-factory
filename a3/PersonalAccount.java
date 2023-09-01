@@ -191,12 +191,4 @@ public class PersonalAccount implements BankAccount{
         System.out.println("Your monthly payment for a loan amount of " + loanAmount + " is " + round(monthlyPayment) + ". ");
         return true;
      }
-
-
-
-
-
-
-
-
 }
