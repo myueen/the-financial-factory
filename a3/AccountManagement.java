@@ -116,33 +116,6 @@ public class AccountManagement {
     }
 
 
-    private void endMessage(String accountType){
-        System.out.println("Dear "+ firstName + " " + lastName + ", \n");
-        if(accountType.equals("a")) {
-            String checkingAccount = "checking account";
-            System.out.println("Your " + checkingAccount + "number is " + accountNumberGenerator() + ". \n" +
-                    "The account balance is " + accountBalance + ". \n" +
-                    "The physical card will be mailed within the next 3-7 business day. \n" +
-                    "Meanwhile, if you have any question, please contact our Account Manager Miss.Ma \n" +
-                    "by dialing 781-308-2462 or by email liana.yema@gmail.com. Thank you!" );
-        } else {
-            accountNumber = accountNumberGenerator();
-            System.out.println("Your saving account number number is " + accountNumber + ". \n" +
-                    "The physical card will be mailed within the next 3-7 business day. \n" +
-                    "Meanwhile, if you have any questions, please contact our Account Manager Miss.Ma \n" +
-                    "by dialing 781-308-2462 or by emailing liana.yema@gmail.com. Thank you!" );
-        }
-    }
-
-
-    private static int accountNumberGenerator(){
-        Random num = new Random();
-        int high = 1000000000;
-        int low = 10000000;
-        return num.nextInt(high-low);
-    }
-
-
     private void confirmInfo() {
         System.out.println("==========================================================================");
         System.out.println("                                                                          ");
@@ -206,6 +179,32 @@ public class AccountManagement {
         System.out.println("What is your initial deposit? Please enter the amount: ");
         accountBalance = Double.parseDouble(sc1.nextLine());
         System.out.println("                                                                          ");
+    }
 
+
+    private static int accountNumberGenerator(){
+        Random num = new Random();
+        int high = 1000000000;
+        int low = 10000000;
+        return num.nextInt(high-low);
+    }
+
+
+    private void endMessage(String accountType){
+        System.out.println("Dear "+ firstName + " " + lastName + ", \n");
+        if(accountType.equals("a")) {
+            String checkingAccount = "checking account";
+            System.out.println("Your " + checkingAccount + "number is " + accountNumberGenerator() + ". \n" +
+                    "The account balance is " + accountBalance + ". \n" +
+                    "The physical card will be mailed within the next 3-7 business day. \n" +
+                    "Meanwhile, if you have any question, please contact our Account Manager Miss.Ma \n" +
+                    "by dialing 781-308-2462 or by email liana.yema@gmail.com. Thank you!" );
+        } else {
+            accountNumber = accountNumberGenerator();
+            System.out.println("Your saving account number number is " + accountNumber + ". \n" +
+                    "The physical card will be mailed within the next 3-7 business day. \n" +
+                    "Meanwhile, if you have any questions, please contact our Account Manager Miss.Ma \n" +
+                    "by dialing 781-308-2462 or by emailing liana.yema@gmail.com. Thank you!" );
+        }
     }
 }
