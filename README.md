@@ -1,4 +1,4 @@
-# BankManagement_Project
+# The_Financial_Factory_Project
 
 ### Plan of Design:
 This project creates a program using Java that mimics the functioning of a bank. Rather than simply depositing and withdrawing money as an ATM, this program has the following additional benefits. First, the bank account opening is simulated by a subprogram named "Account Management". An interface "BankAccount" is used that includes the method signatures. Both "Personal Account" and "Business Account" implement the "BankAccount" interface and each meets the different needs of a different audience. In addition to depositing and withdrawing money, the personal account program offers users more options such as checking credit status and getting a loan. The business account offers an ever more diverse choice for managing the checking amount of a business. It allows the account owner to allocate money for different purposes such as operating expenses, taxes, payrolls, and emergency funds. The business account program allows business owners to effectively subdivide the monthly revenue into different categories for management and payments.
